@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":"nodemon ./test.js",
-    "start": "nodemon ./server.js",
+    "test": "node ./test.js",
+    "start": "node ./server.js",
     "prepare": "husky"
   },
   "keywords": [],
@@ -19,5 +19,4 @@
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9"
   }
-  
 }
