@@ -1,5 +1,5 @@
-export default {
-    extends: ['@commitlint/config-conventional'], "commitlint": "Unknown word",
+module.exports = {
+    extends: ['@commitlint/config-conventional'],
     rules: {
         "type-enum": [
             2,
