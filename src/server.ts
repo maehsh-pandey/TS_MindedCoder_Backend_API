@@ -11,7 +11,8 @@ const PORT = 3000;
 
 app.listen(PORT, () => { 
     console.log('Server running at PORT: ', PORT); 
-  }).on('error', (error:Error) => {
+ 
+}).on('error', (error:Error) => {
     // gracefully handle error
     throw new Error(error.message);
   });
