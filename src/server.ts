@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-
 const port = 3000;
-app.listen(port, (error) => {
+
+app.listen(port, (error:String) => {
     if (!error) {
         console.log(`Server is Successfully Running, and App is listening on port ${port}`)
     } else {
