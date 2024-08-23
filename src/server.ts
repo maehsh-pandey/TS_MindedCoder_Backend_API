@@ -1,11 +1,17 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+// const express = require('express');
+import express, { Application} from 'express';
+const app:Application = express();
+const PORT = 3000;
+// interface ErrorObj {
+//     statusCode: number, 
+//     message: string
+//   }
 
-app.listen(port, (error:String) => {
-    if (!error) {
-        console.log(`Server is Successfully Running, and App is listening on port ${port}`)
-    } else {
-        console.log(`Error occurred, server can't start, ${error}`);
-    }
-});
+
+
+app.listen(PORT, () => { 
+    console.log('Server running at PORT: ', PORT); 
+  }).on('error', (error:Error) => {
+    // gracefully handle error
+    throw new Error(error.message);
+  });
