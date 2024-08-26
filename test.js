@@ -1,2 +1,1 @@
-
-console.log("run husky test file.")
+console.log('run husky test file.')
