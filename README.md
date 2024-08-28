@@ -12,6 +12,11 @@ npx eslint .
 # command: npm install --save-dev eslint-config-prettier
 
 # npm i dotenv-flow
-#
+# upgrade packages : npm install -g npm-check-updates
+# Check the latest versions of all project dependencies:  npx npm-check-updates (run this command)
+
+# Run npx npm-check-updates -u to upgrade package.json
+
+# Run npm install to install new versions.
 
 

@@ -16,7 +16,6 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
         data: data
     }
 
-    // eslint-disable-next-line no-console
     console.info('CONTROLLER_RESPONSE', {
         meta: response
     })

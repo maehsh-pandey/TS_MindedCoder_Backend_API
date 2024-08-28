@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node ./test.js",
     "dev": "dotenvx run -f .env.development -- nodemon ./src/server.ts",
+    "service": "dotenvx run -f .env.development -- nodemon ./src/services/databaseService.ts",
     "start": "cross-env NODE_ENV=production nodemon ./dist/server.js",
     "start:env:encrypt": "dotenvx encrypt -f .env.development",
     "staging": "cross-env NODE_ENV=staging nodemon ./src/server.ts",
@@ -13,8 +14,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format:check": "prettier . --check",
-    "formate:fix": "prettier . --write",
-    "prepare": "husky"
+    "format:fix": "prettier . --write",
+    "prepare": "husky",
+    "migrate:dev": "cross-env MIGRATE_MODE=development node script/migration.js",
+    "migrate:prod": "cross-env MIGRATE_MODE=production node script/migration.js"
   },
   "keywords": [],
   "author": "",
@@ -22,30 +25,41 @@
   "lint-staged": {
     "*.ts": [
       "npm run lint:fix",
-      "npm run formate:fix"
+      "npm run format:fix"
     ]
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.10.2",
+    "@dotenvx/dotenvx": "^1.11.3",
     "@types/express": "^4.17.21",
+    "colorette": "^2.0.20",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv-flow": "^4.1.0",
     "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "helmet": "^7.1.0",
+    "mongoose": "^8.5.4",
+    "nodemon": "^3.1.4",
+    "rate-limiter-flexible": "^5.0.3",
+    "ts-migrate-mongoose": "^3.8.3",
+    "util": "^0.12.5",
+    "winston": "^3.14.2",
+    "winston-mongodb": "^5.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.9.0",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
+    "@eslint/js": "^9.9.1",
+    "@types/cors": "^2.8.17",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^22.5.0",
-    "eslint": "^9.9.0",
+    "@types/node": "^22.5.1",
+    "@types/source-map-support": "^0.5.10",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
     "prettier": "3.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.2.0"
+    "typescript-eslint": "^8.3.0"
   }
 }

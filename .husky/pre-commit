@@ -1,9 +1,7 @@
-#!/bin/sh
-# . "$(dirname "$0")/_/husky.sh"
 npm test
 
 npm run lint:fix
 
-npm run formate:fix 
+npm run format:fix 
 
 npx lint-staged

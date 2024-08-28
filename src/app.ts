@@ -1,5 +1,7 @@
 import express, { Request, Response, NextFunction, Application } from 'express'
 import path from 'path'
+import helmet from 'helmet'
+import cors from 'cors'
 import router from './router/apiRouter'
 import globalErrorHandler from './middleware/globalErrorHandler'
 import responseMessage from './constant/responseMessage'
@@ -10,6 +12,16 @@ import statusCode from './constant/statusCode'
 const app: Application = express()
 
 //Middleware
+app.use(helmet())
+// app.use(helmet.hidePoweredBy())
+
+app.use(
+    cors({
+        methods: ['GET', 'POST'],
+        origin: ['https://example.com'],
+        credentials: true
+    })
+)
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../', 'public'))) //Register public folder
 

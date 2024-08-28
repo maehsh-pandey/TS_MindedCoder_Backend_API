@@ -24,7 +24,7 @@ export default (
     }
 
     //log
-    // eslint-disable-next-line no-console
+
     console.info('CONTROLLER_ERROR', {
         meta: errorObject
     })
